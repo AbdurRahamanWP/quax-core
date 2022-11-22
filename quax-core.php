@@ -178,6 +178,13 @@ if (!class_exists('Quax_core')) {
 			// Custom Post Type
 			require_once __DIR__ . '/post-type/Team.php';
 
+			// Custom Post Type
+			require_once __DIR__ . '/post-type/Service.php';
+
+
+			require_once __DIR__ . '/post-type/portfolio.php';
+			
+
 			require_once __DIR__ . '/post-type/Footer.php';
 
 			// Demo Data Config
@@ -454,6 +461,8 @@ if (!class_exists('Quax_core')) {
 			require_once __DIR__ . '/widgets/Quax_tabs.php';
 			require_once __DIR__ . '/widgets/Quax_team.php';
 			require_once __DIR__ . '/widgets/Quax_subscribe_form.php';
+			require_once __DIR__ . '/widgets/Quax_services.php';
+			require_once __DIR__ . '/widgets/Quax_portfolio.php';
 
 		
 		}
@@ -480,6 +489,8 @@ if (!class_exists('Quax_core')) {
 			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_tabs() );
 			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_team() );
 			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_subscribe_form() );
+			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_services() );
+			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_portfolio() );
 
 			
 		}
