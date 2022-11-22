@@ -1,30 +1,56 @@
 <?php
-class xyz_icon_box extends \Elementor\Widget_Base { 
 
-	public function get_name() {
-		return 'xyz_icon_box';
-	}
+namespace QuaxCore\Widgets;
 
-	public function get_title() {
-		return esc_html__( 'xyz icon box', 'elementor-addon' );
-	}
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Typography;
 
-	public function get_icon() {
-		return 'eicon-device-mobile';
-	}
 
-	public function get_categories() {
-		return [ 'basic' ];
-	}
+// Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-	public function get_keywords() {
-		return [ 'xyz', 'icon', ];
-	}
-	
-    public function get_style_depends(){
-    
-        return[ 'xyz-icon-box' ];
 
+/**
+ * Text Typing Effect
+ *
+ * Elementor widget for text typing effect.
+ *
+ * @since 1.7.0
+ */
+class Quax_icon_box extends \Elementor\Widget_Base
+{
+
+    public function get_name()
+    {
+        return 'quax_icon_box';
+    }
+
+    public function get_title()
+    {
+        return __('Quax Icon Box', 'quax-core');
+    }
+
+    public function get_icon()
+    {
+        return 'eicon-device-mobile';
+    }
+
+    public function get_categories()
+    {
+        return ['quax-elements'];
+    }
+
+    public function get_style_depends()
+    {
+        return ['slick'];
+    }
+
+    public function get_script_depends()
+    {
+        return ['slick', 'quax-custom'];
     }
 
     protected function register_controls() {
@@ -34,26 +60,26 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'card_section',
 			[
-				'label' => esc_html__( 'Content', 'textdomain' ),
+				'label' => esc_html__( 'Content', 'quax-core' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
 		$this->add_responsive_control(
 			'title_align',
 			[
-				'label' => esc_html__( 'Alignment', 'textdomain' ),
+				'label' => esc_html__( 'Alignment', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'textdomain' ),
+						'title' => esc_html__( 'Left', 'quax-core' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'textdomain' ),
+						'title' => esc_html__( 'Center', 'quax-core' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'textdomain' ),
+						'title' => esc_html__( 'Right', 'quax-core' ),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -67,7 +93,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 		$this->add_control(
 			'social_icon',
 			[
-				'label' => esc_html__( 'Icon', 'textdomain' ),
+				'label' => esc_html__( 'Icon', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-circle',
@@ -91,28 +117,28 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 		$this->add_control(
 			'card_title',
 			[
-				'label' => esc_html__( 'Title', 'textdomain' ),
+				'label' => esc_html__( 'Title', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'On Demand Viewing', 'textdomain' ),
-				'placeholder' => esc_html__( 'Type your title here', 'textdomain' ),
+				'default' => esc_html__( 'On Demand Viewing', 'quax-core' ),
+				'placeholder' => esc_html__( 'Type your title here', 'quax-core' ),
 			]
 		);
 		$this->add_control(
 			'card_content',
 			[
-				'label' => esc_html__( 'Description', 'textdomain' ),
+				'label' => esc_html__( 'Description', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'rows' => 10,
-				'default' => esc_html__( 'Default description', 'textdomain' ),
-				'placeholder' => esc_html__( 'Type your description here', 'textdomain' ),
+				'default' => esc_html__( 'Default description', 'quax-core' ),
+				'placeholder' => esc_html__( 'Type your description here', 'quax-core' ),
 			]
 		);
 		$this->add_control(
 			'icon_link',
 			[
-				'label' => esc_html__( 'Link', 'textdomain' ),
+				'label' => esc_html__( 'Link', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'textdomain' ),
+				'placeholder' => esc_html__( 'https://your-link.com', 'quax-core' ),
 				'options' => [ 'url', 'is_external', 'nofollow' ],
 				'default' => [
 					'url' => '',
@@ -126,7 +152,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 		$this->add_control(
 			'snd_icon',
 			[
-				'label' => esc_html__( 'Icon', 'textdomain' ),
+				'label' => esc_html__( 'Icon', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-circle',
@@ -162,7 +188,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label' => esc_html__( 'Icon Color', 'textdomain' ),
+				'label' => esc_html__( 'Icon Color', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .icon i' => 'color: {{VALUE}}',
@@ -173,7 +199,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'background',
-				'label' => esc_html__( 'Background', 'textdomain' ),
+				'label' => esc_html__( 'Background', 'quax-core' ),
 				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .icon i',
 			]
@@ -182,7 +208,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 			$this->add_responsive_control(
 			'speaching',
 			[
-				'label' => esc_html__( 'Spacing', 'textdomain' ),
+				'label' => esc_html__( 'Spacing', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'default' => [
@@ -220,7 +246,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 		$this->add_control(
 			'icon_padding',
 			[
-				'label' => esc_html__( 'Padding', 'textdomain' ),
+				'label' => esc_html__( 'Padding', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -351,7 +377,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 	$this->add_control(
 		'last_icon_color',
 		[
-			'label' => esc_html__( 'Icon Color', 'textdomain' ),
+			'label' => esc_html__( 'Icon Color', 'quax-core' ),
 			'type' => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
 				'{{WRAPPER}} .icons i' => 'color: {{VALUE}}',
@@ -362,7 +388,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 		\Elementor\Group_Control_Background::get_type(),
 		[
 			'name' => 'last_background',
-			'label' => esc_html__( 'Last Background', 'textdomain' ),
+			'label' => esc_html__( 'Last Background', 'quax-core' ),
 			'types' => [ 'classic', 'gradient', 'video' ],
 			'selector' => '{{WRAPPER}} .icons i',
 		]
@@ -371,7 +397,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 		'last_speaching',
 		[
-			'label' => esc_html__( 'Spacing', 'textdomain' ),
+			'label' => esc_html__( 'Spacing', 'quax-core' ),
 			'type' => \Elementor\Controls_Manager::SLIDER,
 			'size_units' => [ 'px', '%' ],
 			'default' => [
@@ -409,7 +435,7 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 	$this->add_control(
 		'padding',
 		[
-			'label' => esc_html__( 'Padding', 'textdomain' ),
+			'label' => esc_html__( 'Padding', 'quax-core' ),
 			'type' => \Elementor\Controls_Manager::DIMENSIONS,
 			'size_units' => [ 'px', '%', 'em' ],
 			'selectors' => [
@@ -421,11 +447,6 @@ class xyz_icon_box extends \Elementor\Widget_Base {
 	$this->end_controls_section();
 
 	}
-	
-
-
-
-
 	protected function render() {
         $settings = $this->get_settings_for_display();
 		?>

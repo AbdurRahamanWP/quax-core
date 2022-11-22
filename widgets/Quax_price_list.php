@@ -1,32 +1,65 @@
 <?php
-class xyz_price_list extends \Elementor\Widget_Base {
 
-	public function get_name() {
-		return 'xyz_price_list';
-	}
+namespace QuaxCore\Widgets;
 
-	public function get_title() {
-		return esc_html__( 'xyz price list', 'elementor-addon' );
-	}
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Typography;
 
-	public function get_icon() {
-		return 'eicon-posts-grid';
-	}
 
-	public function get_categories() {
-		return [ 'basic' ];
-	}
+// Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-	public function get_keywords() {
-		return [ 'xyz', 'price' ];
-	}
-	protected function register_controls() {
+
+/**
+ * Text Typing Effect
+ *
+ * Elementor widget for text typing effect.
+ *
+ * @since 1.7.0
+ */
+class Quax_price_list extends \Elementor\Widget_Base
+{
+
+    public function get_name()
+    {
+        return 'quax_price_list';
+    }
+
+    public function get_title()
+    {
+        return __('Quax Price', 'quax-core');
+    }
+
+    public function get_icon()
+    {
+        return 'eicon-device-mobile';
+    }
+
+    public function get_categories()
+    {
+        return ['quax-elements'];
+    }
+
+    public function get_style_depends()
+    {
+        return ['slick'];
+    }
+
+    public function get_script_depends()
+    {
+        return ['slick', 'quax-custom'];
+    }
+
+    protected function register_controls() {
 		//====Content Section
 
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => esc_html__( 'Content', 'textdomain' ),
+				'label' => esc_html__( 'Content', 'quax-core' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -34,16 +67,16 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_control(
 			'title',
 			[
-				'label' => esc_html__( 'Title', 'textdomain' ),
+				'label' => esc_html__( 'Title', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Default title', 'textdomain' ),
-				'placeholder' => esc_html__( 'Type your title here', 'textdomain' ),
+				'default' => esc_html__( 'Default title', 'quax-core' ),
+				'placeholder' => esc_html__( 'Type your title here', 'quax-core' ),
 			]
 		);
 		$this->add_control(
 			'price',
 			[
-				'label' => esc_html__( 'Price', 'textdomain' ),
+				'label' => esc_html__( 'Price', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'min' => 5,
 				'max' => 300,
@@ -54,20 +87,20 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_control(
 			'time',
 			[
-				'label' => esc_html__( 'Time For Price', 'textdomain' ),
+				'label' => esc_html__( 'Time For Price', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Default title', 'textdomain' ),
-				'placeholder' => esc_html__( 'Type your title here', 'textdomain' ),
+				'default' => esc_html__( 'Default title', 'quax-core' ),
+				'placeholder' => esc_html__( 'Type your title here', 'quax-core' ),
 			]
 		);
 		$this->add_control(
 			'text',
 			[
-				'label' => esc_html__( 'Description', 'textdomain' ),
+				'label' => esc_html__( 'Description', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'rows' => 10,
-				'default' => esc_html__( 'Default description', 'textdomain' ),
-				'placeholder' => esc_html__( 'Type your description here', 'textdomain' ),
+				'default' => esc_html__( 'Default description', 'quax-core' ),
+				'placeholder' => esc_html__( 'Type your description here', 'quax-core' ),
 			]
 		);
 
@@ -78,7 +111,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'icon',
 			[
-				'label' => esc_html__( 'Icon', 'textdomain' ),
+				'label' => esc_html__( 'Icon', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-circle',
@@ -100,9 +133,9 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		);
 		$repeater->add_control(
 			'icon_title', [
-				'label' => esc_html__( 'Title', 'textdomain' ),
+				'label' => esc_html__( 'Title', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'List Title' , 'textdomain' ),
+				'default' => esc_html__( 'List Title' , 'quax-core' ),
 				'label_block' => true,
 			]
 		);
@@ -110,7 +143,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_control(
 			'list',
 			[
-				'label' => esc_html__( 'Repeater List', 'textdomain' ),
+				'label' => esc_html__( 'Repeater List', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
@@ -133,18 +166,18 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_control(
 			'btn_title',
 			[
-				'label' => esc_html__( 'Button Title', 'textdomain' ),
+				'label' => esc_html__( 'Button Title', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Default title', 'textdomain' ),
-				'placeholder' => esc_html__( 'Type your title here', 'textdomain' ),
+				'default' => esc_html__( 'Default title', 'quax-core' ),
+				'placeholder' => esc_html__( 'Type your title here', 'quax-core' ),
 			]
 		);
 		$this->add_control(
 			'btn_link',
 			[
-				'label' => esc_html__( 'Link', 'textdomain' ),
+				'label' => esc_html__( 'Link', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'textdomain' ),
+				'placeholder' => esc_html__( 'https://your-link.com', 'quax-core' ),
 				'options' => [ 'url', 'is_external', 'nofollow' ],
 				'default' => [
 					'url' => '',
@@ -164,7 +197,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'body_section',
 			[
-				'label' => esc_html__( 'Pricing Body', 'textdomain' ),
+				'label' => esc_html__( 'Pricing Body', 'quax-core' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -181,19 +214,19 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'title_align',
 			[
-				'label' => esc_html__( 'Alignment', 'textdomain' ),
+				'label' => esc_html__( 'Alignment', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'textdomain' ),
+						'title' => esc_html__( 'Left', 'quax-core' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'textdomain' ),
+						'title' => esc_html__( 'Center', 'quax-core' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'textdomain' ),
+						'title' => esc_html__( 'Right', 'quax-core' ),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -207,7 +240,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'padding',
 			[
-				'label' => esc_html__( 'Padding', 'textdomain' ),
+				'label' => esc_html__( 'Padding', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -221,7 +254,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'style_section',
 			[
-				'label' => esc_html__( 'Title', 'textdomain' ),
+				'label' => esc_html__( 'Title', 'quax-core' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -229,7 +262,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label' => esc_html__( 'Text Color', 'textdomain' ),
+				'label' => esc_html__( 'Text Color', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .title h2' => 'color: {{VALUE}}',
@@ -291,7 +324,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'price_section',
 			[
-				'label' => esc_html__( 'Price', 'textdomain' ),
+				'label' => esc_html__( 'Price', 'quax-core' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -299,7 +332,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_control(
 			'price_color',
 			[
-				'label' => esc_html__( 'Price Color', 'textdomain' ),
+				'label' => esc_html__( 'Price Color', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .price h3' => 'color: {{VALUE}}',
@@ -361,14 +394,14 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'time_section',
 			[
-				'label' => esc_html__( 'Time', 'textdomain' ),
+				'label' => esc_html__( 'Time', 'quax-core' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'time_color',
 			[
-				'label' => esc_html__( 'Time Text Color', 'textdomain' ),
+				'label' => esc_html__( 'Time Text Color', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .time h3' => 'color: {{VALUE}}',
@@ -425,7 +458,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'margin',
 			[
-				'label' => esc_html__( 'Margin', 'textdomain' ),
+				'label' => esc_html__( 'Margin', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -441,14 +474,14 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'text_section',
 			[
-				'label' => esc_html__( 'Text Editor', 'textdomain' ),
+				'label' => esc_html__( 'Text Editor', 'quax-core' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'textdomain' ),
+				'label' => esc_html__( 'Text Color', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .text p' => 'color: {{VALUE}}',
@@ -518,7 +551,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label' => esc_html__( 'Icon Color', 'textdomain' ),
+				'label' => esc_html__( 'Icon Color', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .icon i' => 'color: {{VALUE}}',
@@ -529,7 +562,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'background',
-				'label' => esc_html__( 'Last Background', 'textdomain' ),
+				'label' => esc_html__( 'Last Background', 'quax-core' ),
 				'types' => [ 'classic', 'gradient', 'video' ],
 				'selector' => '{{WRAPPER}} .icon i',
 			]
@@ -538,7 +571,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 			$this->add_responsive_control(
 			'speaching',
 			[
-				'label' => esc_html__( 'Spacing', 'textdomain' ),
+				'label' => esc_html__( 'Spacing', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'default' => [
@@ -576,7 +609,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'padding',
 			[
-				'label' => esc_html__( 'Padding', 'textdomain' ),
+				'label' => esc_html__( 'Padding', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -587,7 +620,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'icon_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'textdomain' ),
+				'label' => esc_html__( 'Border Radius', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
@@ -603,14 +636,14 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'rep_text_section',
 			[
-				'label' => esc_html__( 'Icon Text', 'textdomain' ),
+				'label' => esc_html__( 'Icon Text', 'quax-core' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'rep_text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'textdomain' ),
+				'label' => esc_html__( 'Text Color', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .repeter-text h3' => 'color: {{VALUE}}',
@@ -667,7 +700,7 @@ class xyz_price_list extends \Elementor\Widget_Base {
 		$this->add_responsive_control(
 			'rep_speaching',
 			[
-				'label' => esc_html__( 'Spacing', 'textdomain' ),
+				'label' => esc_html__( 'Spacing', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'default' => [
