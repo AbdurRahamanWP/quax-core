@@ -148,12 +148,12 @@ class Quax_price_list extends \Elementor\Widget_Base
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'icon' => esc_html__( 'fas fa-facebook',  ),
-						'icon_title' => esc_html__( 'Type Your Title',  ),
+						'icon' => esc_html__( 'fas fa-facebook',  'quax-core'  ),
+						'icon_title' => esc_html__( 'Type Your Title', 'quax-core' ),
 					],
 					[
-						'icon' => esc_html__( 'fas fa-facebook',  ),
-						'icon_title' => esc_html__( 'Type Your Title', ),
+						'icon' => esc_html__( 'fas fa-facebook', 'quax-core'  ),
+						'icon_title' => esc_html__( 'Type Your Title', 'quax-core'  ),
 					],
 					
 				],
