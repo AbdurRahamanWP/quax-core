@@ -22,12 +22,12 @@ if (!defined('ABSPATH')) {
  *
  * @since 1.7.0
  */
-class Quax_Portfolio extends Widget_Base
+class Quax_portfolio extends Widget_Base
 {
 
     public function get_name()
     {
-        return 'quax_portfolio';
+        return 'Quax_portfolio';
     }
 
     public function get_title()

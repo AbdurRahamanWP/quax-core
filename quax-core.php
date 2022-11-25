@@ -363,6 +363,7 @@ if (!class_exists('Quax_core')) {
 		public function enqueue_elementor_scripts()
 		{
 			wp_enqueue_script( 'quax-elementor', QUAX_CORE_DIR_JS . 'quax-elementor.js', ['jquery', 'elementor-frontend'], QUAX_CORE_VERSION, true);
+			wp_enqueue_script( 'carousel_one_js_elementor', QUAX_CORE_DIR_JS . 'carousel_one_js_elementor.js', ['jquery', 'elementor-frontend'], QUAX_CORE_VERSION, true);
 		}
 
 		/**
@@ -403,6 +404,7 @@ if (!class_exists('Quax_core')) {
 		{
 			wp_register_style( 'magnific-popup', plugins_url( 'assets/vendors/magnific-popup/magnific-popup.css', __FILE__) );
 			wp_register_style('slick', plugins_url('assets/vendors/slick/slick.css', __FILE__));
+			wp_register_style('custom_style', plugins_url('assets/vendors/slick/slick.css', __FILE__));
 
 		}
 
@@ -464,7 +466,8 @@ if (!class_exists('Quax_core')) {
 			require_once __DIR__ . '/widgets/Quax_services.php';
 			require_once __DIR__ . '/widgets/Quax_portfolio.php';
 			require_once __DIR__ . '/widgets/Quax_icon_box.php';
-			require_once __DIR__ . '/widgets/Quax_price_list.php';
+			require_once __DIR__ . '/widgets/Quax_carousel_one.php';
+			//require_once __DIR__ . '/widgets/Quax_price_list.php';
 
 		
 		}
@@ -494,7 +497,8 @@ if (!class_exists('Quax_core')) {
 			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_services() );
 			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_portfolio() );
 			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_icon_box() );
-			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_price_list() );
+			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_carousel_one() );
+			//\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_price_list() );
 
 			
 		}
