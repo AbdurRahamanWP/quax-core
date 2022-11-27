@@ -863,6 +863,26 @@ class xyz_price_list extends \Elementor\Widget_Base {
 				'condition' => $args['section_condition'],
 			]
 		);
+		$this->add_responsive_control(
+			'btn_speaching',
+			[
+				'label' => esc_html__( 'Spacing', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'size' => 0,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .btn' => 'margin-top: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
 		$this->add_responsive_control(
 			'text_padding',
