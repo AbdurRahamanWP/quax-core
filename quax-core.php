@@ -467,7 +467,7 @@ if (!class_exists('Quax_core')) {
 			require_once __DIR__ . '/widgets/Quax_portfolio.php';
 			require_once __DIR__ . '/widgets/Quax_icon_box.php';
 			require_once __DIR__ . '/widgets/Quax_carousel_one.php';
-			//require_once __DIR__ . '/widgets/Quax_price_list.php';
+			require_once __DIR__ . '/widgets/Quax_price_list.php';
 
 		
 		}
@@ -498,7 +498,7 @@ if (!class_exists('Quax_core')) {
 			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_portfolio() );
 			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_icon_box() );
 			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_carousel_one() );
-			//\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_price_list() );
+			\Elementor\Plugin::instance()->widgets_manager->register( new \QuaxCore\Widgets\Quax_price_list() );
 
 			
 		}

@@ -148,12 +148,12 @@ class Quax_price_list extends \Elementor\Widget_Base
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'icon' => esc_html__( 'fas fa-facebook',  'quax-core'  ),
-						'icon_title' => esc_html__( 'Type Your Title', 'quax-core' ),
+						'icon' => esc_html__( 'fas fa-facebook', 'quax-core' ),
+						'icon_title' => esc_html__( 'Type Your Title', 'quax-core'  ),
 					],
 					[
-						'icon' => esc_html__( 'fas fa-facebook', 'quax-core'  ),
-						'icon_title' => esc_html__( 'Type Your Title', 'quax-core'  ),
+						'icon' => esc_html__( 'fas fa-facebook', 'quax-core' ),
+						'icon_title' => esc_html__( 'Type Your Title','quax-core' ),
 					],
 					
 				],
@@ -293,10 +293,10 @@ class Quax_price_list extends \Elementor\Widget_Base
 		$this->add_control(
 			'title_blend_mode',
 			[
-				'label' => esc_html__( 'Blend Mode', 'elementor' ),
+				'label' => esc_html__( 'Blend Mode', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'Normal', 'elementor' ),
+					'' => esc_html__( 'Normal', 'quax-core' ),
 					'multiply' => 'Multiply',
 					'screen' => 'Screen',
 					'overlay' => 'Overlay',
@@ -432,10 +432,10 @@ class Quax_price_list extends \Elementor\Widget_Base
 		$this->add_control(
 			'time_blend_mode',
 			[
-				'label' => esc_html__( 'Blend Mode', 'elementor' ),
+				'label' => esc_html__( 'Blend Mode', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'Normal', 'elementor' ),
+					'' => esc_html__( 'Normal', 'quax-core' ),
 					'multiply' => 'Multiply',
 					'screen' => 'Screen',
 					'overlay' => 'Overlay',
@@ -512,10 +512,10 @@ class Quax_price_list extends \Elementor\Widget_Base
 		$this->add_control(
 			'text_blend_mode',
 			[
-				'label' => esc_html__( 'Blend Mode', 'elementor' ),
+				'label' => esc_html__( 'Blend Mode', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
-					'' => esc_html__( 'Normal', 'elementor' ),
+					'' => esc_html__( 'Normal', 'quax-core' ),
 					'multiply' => 'Multiply',
 					'screen' => 'Screen',
 					'overlay' => 'Overlay',
@@ -543,7 +543,7 @@ class Quax_price_list extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'icons_section',
 			[
-				'label' => esc_html__( 'Icon', 'plugin-name' ),
+				'label' => esc_html__( 'Icon', 'quax-core' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -592,7 +592,7 @@ class Quax_price_list extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'size',
 			[
-				'label' => esc_html__( 'Size', 'elementor' ),
+				'label' => esc_html__( 'Size', 'quax-core' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -894,6 +894,26 @@ class Quax_price_list extends \Elementor\Widget_Base
 				'name' => 'button_box_shadow',
 				'selector' => '{{WRAPPER}} .btn a',
 				'condition' => $args['section_condition'],
+			]
+		);
+		$this->add_responsive_control(
+			'btn_speaching',
+			[
+				'label' => esc_html__( 'Spacing', 'quax-core' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'size' => 0,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .btn' => 'margin-top: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
